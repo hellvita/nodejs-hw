@@ -7,6 +7,7 @@ const app = express();
 const PORT = process.env.PORT ?? 3000;
 
 app.use(cors());
+app.use(express.json());
 app.use(
   pino({
     level: 'info',
@@ -23,4 +24,11 @@ app.use(
     },
   }),
 );
-app.use(express.json());
+
+app.get('/notes', (req, res) => {
+  res.status(200).json({ message: 'Retrieved all notes' });
+});
+
+app.listen(PORT, () => {
+  console.log(`Server is running on port: ${PORT}`);
+});
