@@ -20,3 +20,11 @@ export const noteIdSchema = {
     noteId: Joi.string().custom(objectIdValidator).required(),
   }),
 };
+
+export const createNoteSchema = {
+  [Segments.BODY]: Joi.object({
+    title: Joi.string().trim().min(1).required(),
+    content: Joi.string().trim().allow(''),
+    tag: Joi.string().valid(...TAGS),
+  }),
+};
