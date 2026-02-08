@@ -28,3 +28,12 @@ export const createNoteSchema = {
     tag: Joi.string().valid(...TAGS),
   }),
 };
+
+export const updateNoteSchema = {
+  ...noteIdSchema,
+  [Segments.BODY]: Joi.object({
+    title: Joi.string().trim().min(1),
+    content: Joi.string().trim().allow(''),
+    tag: Joi.string().valid(...TAGS),
+  }).min(1),
+};
