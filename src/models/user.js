@@ -25,7 +25,7 @@ userSchema.pre('save', function () {
 });
 
 userSchema.methods.toJSON = function () {
-  const obj = this.toObj();
+  const obj = this.toObject();
 
   delete obj.password;
 
