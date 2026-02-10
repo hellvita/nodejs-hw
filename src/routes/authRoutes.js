@@ -9,7 +9,7 @@ import {
 import {
   registerUserSchema,
   loginUserSchema,
-} from '../../../nodejs-basics/src/validations/authValidation.js';
+} from '../validations/authValidation.js';
 
 const router = Router();
 
