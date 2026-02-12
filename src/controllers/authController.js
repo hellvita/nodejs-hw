@@ -106,7 +106,6 @@ export const requestResetEmail = async (req, res) => {
     { expiresIn: '15m' },
   );
 
-  // TODO: add the reset-password-email.html file
   const templatePath = path.resolve('src/templates/reset-password-email.html');
   const templateSource = await fs.readFile(templatePath, 'utf8');
 
